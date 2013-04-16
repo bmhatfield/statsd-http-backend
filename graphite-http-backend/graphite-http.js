@@ -181,7 +181,6 @@ var backend_status = function graphite_status(writeCb) {
 };
 
 exports.init = function graphite_init(startup_time, config, events) {
-  l = new logger.Logger(config.log || {});
   debug = config.debug;
   bridgeURL = config.bridgeURL;
   api_key = config.api_key;
