@@ -13,7 +13,7 @@
  */
 
 var net = require('net'),
-    logger = require('../lib/logger'),
+    util = require('util'),
     http = require('http'),
     url = require('url');
 
@@ -91,7 +91,7 @@ var post_stats = function graphite_post_stats(metricsArray) {
       req.end();
     } catch(e){
       if (debug) {
-        l.log(e);
+        util.log(e);
       }
       graphiteStats.last_exception = Math.round(new Date().getTime() / 1000);
     }
@@ -137,7 +137,7 @@ var flush_stats = function graphite_flush(ts, metrics) {
           var mpath = the_key + '.' + timer_data_key + '.' + timer_data_sub_key;
           var mval = timer_data[key][timer_data_key][timer_data_sub_key]
           if (debug) {
-            l.log(mval.toString());
+            util.log(mval.toString());
           }
           metricsArray.push(new metric(mpath, mval, ts));
         }
