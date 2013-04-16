@@ -17,9 +17,6 @@ var net = require('net'),
     http = require('http'),
     url = require('url');
 
-// this will be instantiated to the logger
-var l;
-
 var debug;
 var flushInterval;
 var bridgeURL;
