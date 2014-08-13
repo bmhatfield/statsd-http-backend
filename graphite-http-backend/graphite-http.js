@@ -15,6 +15,7 @@
 var net = require('net'),
     util = require('util'),
     http = require('http'),
+    https = require('https'),
     url = require('url');
 
 var debug;
@@ -69,9 +70,17 @@ var post_stats = function graphite_post_stats(metricsArray) {
       options.method = 'POST';
       options.headers = {'Content-Length': data.length};
 
-      var req = http.request(options, function(res) {
-        res.setEncoding('utf8');
-      });
+      var req;
+
+      if(options.protocol === 'https:'){
+        req = https.request(options, function(res) {
+          res.setEncoding('utf8');
+        });
+      } else {
+        req = http.request(options, function(res) {
+          res.setEncoding('utf8');
+        });
+      }
 
       req.on('error', function(e) {
         console.log('problem with request: ' + e.message);
