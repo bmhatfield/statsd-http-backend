@@ -25,3 +25,5 @@ notes
 =====
 
 Should work with both [Backstop](https://github.com/obfuscurity/backstop) and [Graphite HTTP Bridge](https://github.com/bmhatfield/graphite-http-bridge)
+
+Now with HTTPS support, thanks Colin Jones (colinjonesx)
