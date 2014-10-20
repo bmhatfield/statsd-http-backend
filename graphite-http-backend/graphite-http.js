@@ -30,6 +30,7 @@ var prefixCounter;
 var prefixTimer;
 var prefixGauge;
 var prefixSet;
+var prefixStats;
 
 // set up namespaces
 var legacyNamespace  = true;
@@ -197,6 +198,7 @@ exports.init = function graphite_init(startup_time, config, events) {
   prefixGauge     = config.graphite.prefixGauge;
   prefixSet       = config.graphite.prefixSet;
   legacyNamespace = config.graphite.legacyNamespace;
+  prefixStats     = config.prefixStats;
 
   // set defaults for prefixes
   globalPrefix  = globalPrefix !== undefined ? globalPrefix : "stats";
@@ -204,6 +206,7 @@ exports.init = function graphite_init(startup_time, config, events) {
   prefixTimer   = prefixTimer !== undefined ? prefixTimer : "timers";
   prefixGauge   = prefixGauge !== undefined ? prefixGauge : "gauges";
   prefixSet     = prefixSet !== undefined ? prefixSet : "sets";
+  prefixStats   = prefixStats !== undefined ? prefixStats : "statsd";
   legacyNamespace = legacyNamespace !== undefined ? legacyNamespace : true;
 
 
